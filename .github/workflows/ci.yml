@@ -1,0 +1,19 @@
+name: Premier test de Workflow CI
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            -main
+    schedule:
+        - cron: '0 2 * * *'
+
+jobs:
+    build:
+        runs-on: unbutu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Exécution d'un script simple
+          run: echo "Le workflow CI est déclenché par un push sur GitHub, une pull request ou encore tous les jours à 2h00 UTC"
